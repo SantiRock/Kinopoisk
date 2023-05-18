@@ -37,15 +37,10 @@ const MoviesDetails = () => {
     const [loader, setLoader] = useState(false)
     //const valueRef = useRef(0)
 
-    useEffect(() => {
-        setLoc(location.state.from)
-        //valueRef.current = location.state.from
-        //console.log(valueRef)
-        }, [])
-
     const backLinkHref = location.state?.from ?? loc;
 
     useEffect(() => {
+        setLoc(location.state.from)
         setLoader(true)
         getDetails(id)
             .then(response => {
