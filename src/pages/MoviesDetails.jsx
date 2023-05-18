@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getDetails } from "services/api";
 import clsx from "clsx"
