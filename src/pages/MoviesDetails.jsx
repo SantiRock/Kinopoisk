@@ -8,7 +8,6 @@ import { ErrorBoundary } from "components/ErrorBoundaries";
 const posterPad = 'https://image.tmdb.org/t/p/w300'
 
 const AdditionalInfo = () => {
-    const location = useLocation();
 
     return (
         <>
