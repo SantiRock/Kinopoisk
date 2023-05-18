@@ -14,6 +14,20 @@ const Movies = () => {
     const [notification, setNotification] = useState('')
     const [loader, setLoader] = useState(false)
 
+    useEffect(() => {
+        setLoader(true)
+        getMovies(name)
+            .then(response => {
+                setMovies(response)
+                setLoader(false)
+                //setSearchParams({ name: keyword})    
+            })
+            .catch(() => {
+                setNotification("Something went wrong")
+                setLoader(false)
+            })
+    }, [])
+
     const onSubmit = (evt) => {
         setLoader(true)
         evt.preventDefault();
@@ -41,21 +55,6 @@ const Movies = () => {
         const nextParams = name !== '' ? { name } : {};
         setSearchParams(nextParams)
     }
-
-    useEffect(() => {
-        setLoader(true)
-        getMovies(name)
-            .then(response => {
-                setMovies(response)
-                setLoader(false)
-                //setSearchParams({ name: keyword})    
-            })
-            .catch(() => {
-                setNotification("Something went wrong")
-                setLoader(false)
-            })
-    }, [])
-
 
     return (
         <div className="container">
