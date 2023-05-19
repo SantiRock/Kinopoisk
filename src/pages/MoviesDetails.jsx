@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getDetails } from "services/api";
 import clsx from "clsx"
@@ -33,13 +33,11 @@ const MoviesDetails = () => {
     const [overview, setOverview] = useState('')
     const [genres, setGenres] = useState('')
     const [poster, setPoster] = useState('')
-    //const [loc, setLoc] = useState('')
+    const loc = useRef(() => location.state.from)
     const [loader, setLoader] = useState(false)
-    //const valueRef = useRef(0)
-
-    
 
     useEffect(() => {
+        loc.current = location.state.from
         setLoader(true)
         getDetails(id)
             .then(response => {
@@ -60,8 +58,7 @@ const MoviesDetails = () => {
             })
     }, [id])
     
-    const backLinkHref = location.state?.from //?? loc;
-
+    const backLinkHref = location.state?.from ?? loc.current;
 
     return (
         <>
