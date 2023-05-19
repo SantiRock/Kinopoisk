@@ -14,13 +14,13 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Nav />}>
-        <Route index element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Home /></Suspense>} />
-        <Route path="movies" element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Movies /></Suspense>} />
-          <Route path="movies/:id" element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><MoviesDetails /></Suspense>}>
-            <Route path='cast' element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Cast /></Suspense>}/>
-            <Route path='reviews' element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Reviews /></Suspense>}/>
+        <Route index element={<Suspense fallback={<div className="suspense">Loading...</div>}><Home /></Suspense>} />
+        <Route path="movies" element={<Suspense fallback={<div className="suspense">Loading...</div>}><Movies /></Suspense>} />
+          <Route path="movies/:id" element={<Suspense fallback={<div className="suspense">Loading...</div>}><MoviesDetails /></Suspense>}>
+            <Route path='cast' element={<Suspense fallback={<div className="suspense">Loading...</div>}><Cast /></Suspense>}/>
+            <Route path='reviews' element={<Suspense fallback={<div className="suspense">Loading...</div>}><Reviews /></Suspense>}/>
           </Route>
-        <Route path="*" element={<Suspense fallback={<div className="suspense">"Loading..."</div>}>{<Navigate to="/"/>}</Suspense>}/>
+        <Route path="*" element={<Suspense fallback={<div className="suspense">Loading...</div>}>{<Navigate to="/"/>}</Suspense>}/>
       </Route>
     </Routes>
   )
