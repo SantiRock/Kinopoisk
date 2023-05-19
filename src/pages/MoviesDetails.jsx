@@ -33,14 +33,13 @@ const MoviesDetails = () => {
     const [overview, setOverview] = useState('')
     const [genres, setGenres] = useState('')
     const [poster, setPoster] = useState('')
-    const [loc, setLoc] = useState('')
+    //const [loc, setLoc] = useState('')
     const [loader, setLoader] = useState(false)
     //const valueRef = useRef(0)
 
-    const backLinkHref = location.state?.from ?? loc;
+    
 
     useEffect(() => {
-        setLoc(location.state.from)
         setLoader(true)
         getDetails(id)
             .then(response => {
@@ -61,6 +60,9 @@ const MoviesDetails = () => {
             })
     }, [id])
     
+    const backLinkHref = location.state?.from //?? loc;
+
+
     return (
         <>
         <ErrorBoundary>
