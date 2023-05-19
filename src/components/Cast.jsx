@@ -73,7 +73,7 @@ const Cast = () => {
                 }
             })
             .catch(() => setAnyCast("Something went wrong"))
-    }, [])
+    }, [id])
 
     return (
         <div className={css.container}>

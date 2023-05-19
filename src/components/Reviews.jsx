@@ -61,7 +61,7 @@ const Reviews = () => {
             })
             .catch(() => setAnyReviews("Something went wrong"))
 
-    }, [])
+    }, [id])
 
 
     return (

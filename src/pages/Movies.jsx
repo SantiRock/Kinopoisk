@@ -26,7 +26,7 @@ const Movies = () => {
                 setNotification("Something went wrong")
                 setLoader(false)
             })
-    }, [])
+    }, [name])
 
     const onSubmit = (evt) => {
         setLoader(true)

@@ -59,7 +59,7 @@ const MoviesDetails = () => {
                 })
                 setLoader(false)
             })
-    }, [])
+    }, [id])
     
     return (
         <>
