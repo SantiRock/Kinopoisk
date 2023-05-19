@@ -38,3 +38,10 @@ p {
   line-height: 18px;
   text-align: justify;
 }
+
+.suspense {
+  margin: auto;
+  padding-left: 20px;
+  padding-top: 15px;
+  max-width: 1044px;
+}

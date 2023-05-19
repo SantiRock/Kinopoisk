@@ -7,12 +7,10 @@ export const Header = styled.header`
 
 export const Navv = styled.nav`
     margin: auto;
-    
     padding-left: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
     max-width: 1044px;
-
 `
 
 export const Link =  styled(NavLink)`

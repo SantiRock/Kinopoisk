@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Nav } from "./Nav";
-
 
 const Home = lazy(() => import("../pages/Home"));
 const Movies = lazy(() => import("../pages/Movies"));
@@ -15,42 +14,17 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Nav />}>
-        <Route index element={<Suspense fallback="Loading..."><Home /></Suspense>} />
-        <Route path="movies" element={<Suspense fallback="Loading..."><Movies /></Suspense>} />
-          <Route path="movies/:id" element={<Suspense fallback="Loading"><MoviesDetails /></Suspense>}>
-            <Route path='cast' element={<Suspense fallback="Loading"><Cast /></Suspense>}/>
-            <Route path='reviews' element={<Suspense fallback="Loading"><Reviews /></Suspense>}/>
+        <Route index element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Home /></Suspense>} />
+        <Route path="movies" element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Movies /></Suspense>} />
+          <Route path="movies/:id" element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><MoviesDetails /></Suspense>}>
+            <Route path='cast' element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Cast /></Suspense>}/>
+            <Route path='reviews' element={<Suspense fallback={<div className="suspense">"Loading..."</div>}><Reviews /></Suspense>}/>
           </Route>
-        <Route path="*" element={<Suspense fallback="Loading"><Home /></Suspense>}/>
+        <Route path="*" element={<Suspense fallback={<div className="suspense">"Loading..."</div>}>{<Navigate to="/"/>}</Suspense>}/>
       </Route>
     </Routes>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
