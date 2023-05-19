@@ -42,6 +42,7 @@ ReviewsList.propTypes = {
 
 const Reviews = () => {
     const {id} = useParams()
+   
     const [reviews, setReviews] = useState([])
     const [anyReviews, setAnyReviews] = useState('')
 
