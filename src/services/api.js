@@ -1,8 +1,9 @@
 const ApiKey = '0a3a4e00d84de20a8f1b6dfc8a7cdfd5';
 
 export const getTrending = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${ApiKey}`);
+    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${ApiKey}&per_page=10&page=1`);
     const json = await response.json();
+    console.log(json.results);
     return json.results;
 }
 
